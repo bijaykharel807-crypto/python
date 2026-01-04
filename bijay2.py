@@ -1,24 +1,19 @@
-age = int(input("Enter your age: "))
+import mysql.connector
 
-license = input("Do you have a driving license? (yes/no): ")
-vehicle = input("Do you have your own vehicle? (yes/no): ")
-if age >= 18:
-    if license == "yes":
-        if vehicle == "yes":
-            print("You can drive alone.")
-        else:
-            print("You have a license but no vehicle.")
-    else:
-        print("You must get a driving license first.")
-else:
-    if age >= 16:
-        print("You can only drive with supervision.")
-    else:
-        print("You are not allowed to drive.")
+db = mysql.connector.connect(
+    host="localhost", user="root", database="Nepaldata"
+)
+terminal = db.cursor()
+# terminal.execute("Create Database Nepaldata")
+# terminal.execute("Show tables")
+# data = terminal.fetchall()
+# print(data)
+terminal.execute("Create table history (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(60), address VARCHAR(12))")
+print("Table 'history' created successfully!")
+#TODO,Drop, database
+db = mysql.connector.connect(
+    host="localhost", username="root"
+)
+terminal = db.cursor()
 
-
-
-
- 
-                   
-
+# terminal.execute("Drop database ")
