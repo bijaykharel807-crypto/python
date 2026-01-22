@@ -1,6 +1,7 @@
 import sqlite3
 import requests
 from bs4 import BeautifulSoup
+
 import csv
 import json
 import os
